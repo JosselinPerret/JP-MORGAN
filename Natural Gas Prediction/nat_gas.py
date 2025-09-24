@@ -2,13 +2,15 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-nat_gas_data = pd.read_csv('Nat_Gas.csv')
+nat_gas_data = pd.read_csv('C:\\Users\\josse\\OneDrive\\CS\\Projet\\JP MORGAN\\Natural Gas Prediction\\Nat_Gas.csv')
 
 t = np.arange(len(nat_gas_data))
 
 a = np.polyfit(t, nat_gas_data['Prices'], 1)
 drift = a[0] * t + a[1]
 y = nat_gas_data['Prices'] - drift
+
+N = 1
 
 yf = np.fft.fft(y)
 T = 1.0
